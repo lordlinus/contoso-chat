@@ -34,7 +34,7 @@ var deployments = [
     }
     sku: {
       name: 'Standard'
-      capacity: 120
+      capacity: 100
     }
   }
   {
@@ -46,7 +46,7 @@ var deployments = [
     }
     sku: {
       name: 'Standard'
-      capacity: 10
+      capacity: 5
     }
   }
   {
@@ -58,7 +58,7 @@ var deployments = [
     }
     sku: {
       name: 'Standard'
-      capacity: 120
+      capacity: 80
     }
   }
 ]

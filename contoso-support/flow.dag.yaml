@@ -75,11 +75,12 @@ nodes:
     type: code
     path: llm_call.jinja2
   inputs:
-    deployment_name: gpt-35-turbo
+    deployment_name: gpt-4
     temperature: 0
     prompt_text: ${customer_prompt.output}
     question: ${inputs.question}
     history: ${inputs.chat_history}
+    max_tokens: 512
   connection: aoai-connection
   api: chat
   use_variants: false

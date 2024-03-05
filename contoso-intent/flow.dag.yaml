@@ -52,7 +52,9 @@ nodes:
     type: code
     path: llm_response.jinja2
   inputs:
-    deployment_name: gpt-35-turbo
+    deployment_name: gpt-4
     prompt_text: ${classify_intent_prompt.output}
+    temperature: 0
+    max_tokens: 256
   connection: aoai-connection
   api: chat
