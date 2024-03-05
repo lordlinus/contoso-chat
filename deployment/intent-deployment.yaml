@@ -1,5 +1,4 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-name: contoso-intent
 endpoint_name: contoso-intent
 model: azureml:contoso-intent-model:1
   # You can also specify model files path inline
