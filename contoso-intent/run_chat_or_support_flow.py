@@ -96,7 +96,7 @@ def run_chat_or_support_flow(
             "customerId": customerId,
             "chat_history": chat_history,
         }
-        return call_endpoint(url, key, input_data, "contoso-support-9f8e7b")
+        return call_endpoint(url, key, input_data, "")
     else:
         # call support endpoint and return response (input is question and customer id in json format)
         print("running chat flow")
@@ -108,4 +108,4 @@ def run_chat_or_support_flow(
             "customerId": customerId,
             "chat_history": chat_history,
         }
-        return call_endpoint(url, key, input_data, "contoso-chat-b7a357")
+        return call_endpoint(url, key, input_data, "")
