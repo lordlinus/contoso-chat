@@ -15,7 +15,7 @@ env:
   SUBSCRIPTION: ${{secrets.SUBSCRIPTION}}
   RUN_NAME: contoso-chat
   EVAL_RUN_NAME: contoso-chat-eval
-  ENDPOINT_NAME: contoso-chat-store-ss0016
+  ENDPOINT_NAME: contoso-chat
   DEPLOYMENT_NAME: contoso-chat
   KEY_VAULT_NAME: ${{secrets.KEY_VAULT_NAME}}
 
@@ -37,10 +37,14 @@ jobs:
     - name: Set default subscription
       run: |
          az account set -s ${{env.SUBSCRIPTION}}
+    - name: Get first 6 chat of subscription id
+      run: echo "SUBID=$(echo -n $SUBSCRIPTION | cut -c 1-6)" >> "$GITHUB_ENV"
+    - name: Create unique endpoint name   
+      run: echo "ENDPOINT_NAME=$(echo '$ENDPOINT_NAME-'$SUBID)" >> "$GITHUB_ENV"
     - name: Create Hash
       run: echo "HASH=$(echo -n $RANDOM | sha1sum | cut -c 1-6)" >> "$GITHUB_ENV"
-    - name: Create unique deployemnt name   
-      run: echo "DEPLOYMENT_NAME=$(echo 'contoso-chat-'$HASH)" >> "$GITHUB_ENV"
+    - name: Create unique deployment name   
+      run: echo "DEPLOYMENT_NAME=$(echo '$ENDPOINT_NAME-'$HASH)" >> "$GITHUB_ENV"
     - name: Display deployment name
       run: |
         echo "Deployment name is:" ${{env.DEPLOYMENT_NAME}} 
