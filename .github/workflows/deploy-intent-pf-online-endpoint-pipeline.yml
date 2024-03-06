@@ -41,12 +41,12 @@ jobs:
     - name: Get first 6 chat of subscription id
       run: echo "SUBID=$(echo -n $SUBSCRIPTION | cut -c 1-6)" >> "$GITHUB_ENV"
     - name: Create unique endpoint name   
-      run: echo "ENDPOINT_NAME=$(echo '$ENDPOINT_NAME-'$SUBID)" >> "$GITHUB_ENV"
+      run: echo "ENDPOINT_NAME=$(echo $ENDPOINT_NAME'-'$SUBID)" >> "$GITHUB_ENV"
 
     - name: Create Hash
       run: echo "HASH=$(echo -n $RANDOM | sha1sum | cut -c 1-6)" >> "$GITHUB_ENV"
     - name: Create unique deployemnt name   
-      run: echo "DEPLOYMENT_NAME=$(echo '$ENDPOINT_NAME-'$HASH)" >> "$GITHUB_ENV"
+      run: echo "DEPLOYMENT_NAME=$(echo $ENDPOINT_NAME'-'$HASH)" >> "$GITHUB_ENV"
     - name: Display deployment name
       run: |
         echo "Deployment name is:" ${{env.DEPLOYMENT_NAME}} 
