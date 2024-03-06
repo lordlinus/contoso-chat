@@ -18,6 +18,8 @@ environment:
       port: 8080
 instance_type: Standard_DS3_v2
 instance_count: 1
+request_settings:
+    request_timeout_ms: 300000 # 5 minutes - we might not need this high of a timeout.
 environment_variables:
   
   # "compute" mode is the default mode, if you want to deploy to serving mode, you need to set this env variable to "serving"
