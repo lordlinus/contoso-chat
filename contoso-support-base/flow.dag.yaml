@@ -35,7 +35,6 @@ nodes:
   inputs:
     connection: aoai-connection
     input: ${inputs.question}
-    deployment_name: text-embedding-ada-002
   use_variants: false
 - name: customer_lookup
   type: python
